@@ -7,15 +7,53 @@ import java.util.Scanner;
 
 public class Sistema {
 
-	List<Aluno> alunosSistema = new ArrayList<>();
-	List<Professor> professoresSistema = new ArrayList<>();
-	List<Disciplina> disciplinasSistema = new ArrayList<>();
-	List<Turma> turmasSistema = new ArrayList<>();
+	List<Aluno> alunosSistema =new ArrayList<>() ;
+	List<Professor> professoresSistema; 
+	List<Disciplina> disciplinasSistema;
+	List<Turma> turmasSistema ;
 
 	public Sistema() {
 
+		alunosSistema=null;
+		professoresSistema= new ArrayList<>();
+		disciplinasSistema= new ArrayList<>();
+		turmasSistema=new ArrayList<>();
 	}
 
+	
+	public List<Aluno> getAlunosSistema() {
+		return alunosSistema;
+	}
+
+	public void setAlunosSistema(List<Aluno> alunosSistema) {
+		this.alunosSistema = alunosSistema;
+	}
+
+	public List<Professor> getProfessoresSistema() {
+		return professoresSistema;
+	}
+
+	public void setProfessoresSistema(List<Professor> professoresSistema) {
+		this.professoresSistema = professoresSistema;
+	}
+
+	public List<Disciplina> getDisciplinasSistema() {
+		return disciplinasSistema;
+	}
+
+	public void setDisciplinasSistema(List<Disciplina> disciplinasSistema) {
+		this.disciplinasSistema = disciplinasSistema;
+	}
+
+	public List<Turma> getTurmasSistema() {
+		return turmasSistema;
+	}
+
+	public void setTurmasSistema(List<Turma> turmasSistema) {
+		this.turmasSistema = turmasSistema;
+	}
+	
+	
 	public void cadastrarAluno() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -23,9 +61,11 @@ public class Sistema {
 		String nome = scanner.nextLine();
 		System.out.print("Digite o CPF do aluno: ");
 		String cpf = scanner.nextLine();
-		Aluno aluno = new Aluno(nome, cpf);
-		alunosSistema.add(aluno);
-
+	
+		
+			Aluno aluno = new Aluno(nome, cpf);
+		 getAlunosSistema().add(aluno);
+		
 	}
 
 	public void cadastrarProfessor() {
@@ -35,7 +75,7 @@ public class Sistema {
 		System.out.print("Digite o CPF do professor: ");
 		String cpfP = scanner.nextLine();
 		Professor professor = new Professor(nomeP, cpfP);
-		professoresSistema.add(professor);
+		getProfessoresSistema().add(professor);
 
 	}
 
@@ -44,7 +84,7 @@ public class Sistema {
 		System.out.print("Digite o nome da disciplina: ");
 		String nomeD = scanner.nextLine();
 		Disciplina disciplina = new Disciplina(nomeD);
-		disciplinasSistema.add(disciplina);
+		getDisciplinasSistema().add(disciplina);
 
 	}
 
@@ -53,7 +93,7 @@ public class Sistema {
 		System.out.print("Digite o código da turma: ");
 		String cod = scanner.nextLine();
 		Turma turma = new Turma(cod);
-		turmasSistema.add(turma);
+		getTurmasSistema().add(turma);
 
 	}
 
@@ -121,55 +161,16 @@ public class Sistema {
 
 	public void inserirAlunoTurma() {
 		
-		    Scanner sc = new Scanner(System.in);
-		    String cpf;
-		    System.out.println("CPF do aluno que deseja inserir: ");
-		    cpf = sc.next();
-		    Sistema sistema = new Sistema();
 		    
-		    if(sistema.getAlunosSistema()!=null) {
-		    	System.out.println("não nulo");
+		    if(getAlunosSistema()==null) {
+		    	System.out.println("vazio ");
 		    	
-		    }else if(sistema.getAlunosSistema()==null && sistema.getAlunosSistema().isEmpty()) {
-		    	System.out.println("nulo");
-		    }
-		    	
-
-
-		    
-		      
+	
+		    }else System.out.println("nao vazio");
+		 
+		  
 	}
 
-	public List<Aluno> getAlunosSistema() {
-		return alunosSistema;
-	}
-
-	public void setAlunosSistema(List<Aluno> alunosSistema) {
-		this.alunosSistema = alunosSistema;
-	}
-
-	public List<Professor> getProfessoresSistema() {
-		return professoresSistema;
-	}
-
-	public void setProfessoresSistema(List<Professor> professoresSistema) {
-		this.professoresSistema = professoresSistema;
-	}
-
-	public List<Disciplina> getDisciplinasSistema() {
-		return disciplinasSistema;
-	}
-
-	public void setDisciplinasSistema(List<Disciplina> disciplinasSistema) {
-		this.disciplinasSistema = disciplinasSistema;
-	}
-
-	public List<Turma> getTurmasSistema() {
-		return turmasSistema;
-	}
-
-	public void setTurmasSistema(List<Turma> turmasSistema) {
-		this.turmasSistema = turmasSistema;
-	}
+	
 
 }
