@@ -1,6 +1,5 @@
 package FaculdadeProject.Classes;
 
-import java.util.Scanner;
 
 public class Aluno {
 	
@@ -13,6 +12,10 @@ public class Aluno {
 		this.cpf=cpf;
 		this.nome=nome;
 	
+	}
+	
+	public Aluno() {
+		
 	}
 
 	public String getCpf() {
@@ -39,22 +42,5 @@ public class Aluno {
 		this.turma = turma;
 	}
 	
-	public Aluno cadastarAluno(Aluno novoAluino, Scanner sc) {
-		
-		
-		String cpf ;
-		String nome;
-		
-		System.out.println("CPF do aluno");
-		cpf=sc.next();
-		System.out.println("Nome do aluno");
-		nome=sc.next();
-		
-		Aluno novoAluno = new Aluno(cpf,nome);
-		
-		sc.close();
-		return novoAluno;
-	}
-
 	
 }

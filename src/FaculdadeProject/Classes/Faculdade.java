@@ -8,7 +8,6 @@ public class Faculdade {
 
 		int opcao;
 		Sistema sistema = new Sistema();
-		Turma turma = new Turma();
 		Scanner scanner = new Scanner(System.in);
 
 		do {
@@ -29,20 +28,22 @@ public class Faculdade {
 			case 4:
 				sistema.cadastrarTurma();
 				break;
-
 			case 5:
-				turma.addAluno();
+				sistema.inserirAlunoTurma();
 				break;
 			case 6:
-				sistema.listarAlunos();
+				
 				break;
 			case 7:
-				sistema.listarProfessores();
+				sistema.listarAlunos();
 				break;
 			case 8:
-				sistema.listarDisciplinas();
+				sistema.listarProfessores();
 				break;
 			case 9:
+				sistema.listarDisciplinas();
+				break;
+			case 10:
 				sistema.listarTurmas();
 				break;
 
@@ -70,10 +71,11 @@ public class Faculdade {
 		System.out.println("3. Cadastrar Disciplina");
 		System.out.println("4. Cadastrar Turma");
 		System.out.println("5. Adicionar Aluno em uma turma");
-		System.out.println("6. Listar Alunos");
-		System.out.println("7. Listar professores");
-		System.out.println("8. Listar Disciplinas");
-		System.out.println("9. Listar Turmas");
+		System.out.println("6. Adicionar Disciplina em uma turma");
+		System.out.println("7. Listar Alunos");
+		System.out.println("8. Listar professores");
+		System.out.println("9. Listar Disciplinas");
+		System.out.println("10. Listar Turmas");
 		System.out.println("0. Sair");
 		System.out.print("Escolha uma opção: ");
 	}
