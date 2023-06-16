@@ -1,71 +1,23 @@
 package BancoProject.Classes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+public class ContaPoupanca extends Conta {
+    private double taxaRendimento;
 
-public class ContaPoupanca extends ContaBancaria {
+    public ContaPoupanca(int numero, String titular, double taxaRendimento) {
+        super(numero, titular);
+        this.taxaRendimento = taxaRendimento;
+    }
 
-	List<Cliente> listaClientes;
-	private Cliente cliente;
-	
-	public ContaPoupanca() {
-		
-		List<Cliente> listaClientes= new ArrayList<>();
-	}
-	
-	@Override
-	public double atualizarSaldo() {
-		
-			Scanner sc= new Scanner(System.in);
-			System.out.println("Deseja sacar ou depositar");
-			System.out.println("1. sacar");
-			System.out.println("2. depositar");
-			int op= sc.nextInt();
-			
-			switch (op) {
-			
-			case 1: {
-				
-				System.out.println("Quando deseja sacar: ");
-				Double valor= sc.nextDouble();
-				
-				return cliente.getSaldo()-valor;
-			}
-			
-			case 2:{
-				
-				System.out.println("Quando deseja depositar: ");
-				Double valor= sc.nextDouble();
-				
-				return cliente.getSaldo()+valor;
-				
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + op);
-			}
-		
-	}
-	
-	@Override
-	public void abrirConta(Cliente cliente) {
-		listaClientes.add(cliente);
-		
-	}
+    public double getTaxaRendimento() {
+        return this.taxaRendimento;
+    }
 
-	@Override
-	public void removerConta(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
-		listaClientes.remove(cliente);
-	}
-	
-	
-	public double rendimento(double saldo) {
-	
-		double saldoAtualizado =cliente.getSaldo()*1.15;
-		
-		return saldoAtualizado;
-	}
+    public void setTaxaRendimento(double taxaRendimento) {
+        this.taxaRendimento = taxaRendimento;
+    }
 
+    public void aplicarRendimento() {
+        double rendimento = this.getSaldo() * (this.taxaRendimento / 100);
+        this.depositar(rendimento);
+    }
 }

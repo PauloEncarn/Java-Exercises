@@ -1,44 +1,36 @@
 package BancoProject.Classes;
 
+import java.util.ArrayList;
+
 public class Cliente {
-	
-	private String nome;
-	private Character tipoC;
-	private double saldo;
-	
-	
-	public Cliente(String nome, Character tipoC) {
-		
-		this.nome = nome;
-		this.tipoC = tipoC;
-		this.saldo=0;
-		
-	}
+    private String nome;
+    private String cpf;
+    
+    private ArrayList<Conta> contas = new ArrayList<>();
 
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getNome() {
+        return this.nome;
+    }
 
+    public String getCpf() {
+        return this.cpf;
+    }
 
+    public void adicionarConta(Conta conta) {
+        this.contas.add(conta);
+    }
 
-	public Character getTipoC() {
-		return tipoC;
-	}
-
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-
-
-
-	
-	
-	
+    public Conta buscarConta(int numeroConta) {
+        for (Conta conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta;
+            }
+        }
+        return null;
+    }
 }
