@@ -1,9 +1,9 @@
 package FaculdadeProject.Classes;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Faculdade {
-
+/*
 	public static void main(String[] args) {
 
 		int opcao;
@@ -79,4 +79,6 @@ public class Faculdade {
 		System.out.println("0. Sair");
 		System.out.print("Escolha uma opção: ");
 	}
+}
+*/
 }
